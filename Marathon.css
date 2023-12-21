@@ -1,0 +1,998 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body *{
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+@media (min-width: 1400px){
+  html body .container{
+      max-width: 1220px !important;
+  }
+}
+@media (min-width: 1200px){
+  .container{
+      max-width: 1180px !important;
+  }
+}
+@media (min-width: 992px){
+  .container{
+      max-width: 960px;
+  }
+}
+@media (min-width: 767px){
+  .container{
+      max-width: 720px;
+  }
+}
+.container{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+/* Common CSS */
+
+.title-top {
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #ea3a09;
+  font-weight: 400;
+  text-align: center;
+}
+.section-title {
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #18181b
+}
+
+/* Header */
+.main-header .nav-right .btn{
+  padding: 10px 23px;
+  border: 1px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 26px;
+  border-radius: 4px;
+  height: 38px;
+  min-width: 102px;
+}
+
+.main-header .nav-right .sign-in.btn {
+  background: #ea3a09;
+  border-color: #ea3a09;
+  color: #ffffff;
+}
+
+.main-header .nav-right .register.btn {
+  color: #ea3a09;
+  border: 1px solid #ea3a09;
+  margin-left: 10px;
+  background: transparent;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 36px;
+}
+
+.main-header .nav-right .register.btn:hover {
+  background: #ea3a09;
+  color: #ffffff;
+}
+
+.main-header .nav-right .sign-in.btn:hover {
+  background: #ffffff;
+  color: #ea3a09;
+}
+
+.main-header .navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.main-header .navbar-nav > .nav-item:nth-child(2) .nav-link {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.main-header .navbar-nav > .nav-item .nav-link {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.main-header .navbar-nav > .nav-item .nav-link:hover, 
+.main-header .navbar-nav > .nav-item:nth-child(1) .nav-link {
+  color: #ea3a09;
+}
+.navbar>.container-fluid {
+  padding: 0px;
+}
+/* Main content */
+main {
+  background: url('./marathon-images/orange-background.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+}
+
+/* Hero Section */
+
+.hero {
+  background: url('./marathon-images/hero-banner-image.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-top: 77px;
+  padding-bottom: 77px;
+}
+.hero .top-sub-heading {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+.hero .hero-heading {
+  font-size: 60px;
+  color: #ffffff;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.hero .sub-heading {
+  font-size: 38px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.hero .event-date, 
+.hero .event-time {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 0px;
+  line-height: 50px;
+}
+
+.hero .event-date img, 
+.hero .event-time img {
+  filter: invert(1);
+  font-weight: 600;
+}
+
+.hero .hero-para {
+  max-width: 507px;
+  margin-top: 74px;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.hero .button-container .event-link {
+  width: 230px;
+  height: 66px;
+  background: #ea3a09;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 29px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+.hero .button-container .event-link:hover{
+  background: #ffffff;
+  color: #ea3a09;
+  border: 1px solid #ea3a09;
+}
+
+/* Area Of Run */
+.area-of-run {
+  padding-top: 25px;
+  padding-bottom: 65px;
+  background: #fff3ed;
+  position: relative;
+}
+.area-of-run:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  background: url('./marathon-images/area-of-run-top-strip.png');
+  left: 0px;
+  top: -59px;
+  height: 60px;
+}
+.area-of-run .area-text {
+  flex-direction: column;
+}
+.area-of-run .area-address {
+  padding: 23px 18px;
+  color: #222222;
+  font-size: 24px;
+  border-radius: 4px;
+  background: #f2e9e2;
+  border: 1px solid #d7cec9;
+  margin-bottom: 28px;
+  margin-top: 24px;
+}
+.area-of-run .area-list {
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+.area-of-run .area-list li {
+  margin-bottom: 20px;
+  font-size: 16px;
+  padding-left: 32px;
+  position: relative;
+}
+.area-of-run .area-list li:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 16px;
+  background: url('./marathon-images/tick-mark.png');
+  left: 0px;
+  top: 3px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.area-of-run .area-list li:last-child {
+  margin-bottom: 0px;
+}
+.area-of-run .section-title,
+.area-of-run .title-top {
+    text-align: left;
+}
+/* Event Details */
+.event-details-section {
+  padding: 36px 0px;
+  background: #ffffff;
+}
+
+.event-details-container {
+    margin-top: 20px;
+}
+
+.event-details-content {
+    display: flex;
+    padding: 30px 0px 30px;
+    border-bottom: 1px dashed #a9a9a9;
+}
+
+.event-details-section .event-left-section .event-points {
+    margin-bottom: 0px;
+    font-size: 26px;
+    color: #ea3a0a;
+    line-height: 1.1;
+}
+
+.event-details-section .event-left-section .event-heading {
+    margin-bottom: 0px;
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.event-details-section .event-right-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-details-section .event-right-section .event-para {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.event-details-section .event-right-section .read-more {
+  color: #ea3a0a;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.event-details-section .event-right-section .read-more:hover {
+  text-decoration: underline;
+}
+.event-details-container {
+  margin-top: 20px;
+}
+/* Photo Gallery */
+.gallery-container .col-4 img {
+  width: 100%;
+}
+.gallery-container .no-gutters {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery-container img {
+  max-width: 100%;
+}
+.gallery-container .col-4 .img {
+  display: block;
+  padding: 10px;
+}
+.gallery-details {
+  text-align: center;
+  margin-top: 30px !important;
+  margin-bottom: 30px;
+}
+.gallery-details a:hover, .gallery-details a.active {
+  background: #ea3a09;
+  border-color: #ea3a09;
+  color: #ffffff;
+}
+.gallery-details .btn {
+  font-size: 14px;
+}
+.gallery-details .past-events {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.event-gallery-section .button-container {
+  text-align: center;
+}
+
+.event-gallery-section {
+  padding: 40px 0px;
+}
+
+.event-gallery-section .button-container .load-more {
+  background: #ea3a09;
+  border-color: #ea3a09;
+  color: #ffffff;
+  width: 180px;
+  margin-top: 44px;
+  line-height: 30px;
+}
+.event-gallery-section .button-container .load-more:hover{
+  background: #ffffff;
+    color: #ea3a09;
+    border: 1px solid #ea3a09;
+}
+/* Testimonial */
+
+.testimonial-section {
+  padding: 40px 0px;
+  background-image: url('./marathon-images/world-map.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.testimonial-section .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-section .wrapper .user-image {
+  border-radius: 100%;
+}
+
+.testimonial-section .swiper.testimonial {
+  margin-top: 40px;
+}
+
+.testimonial-section .wrapper .star {
+  margin: 30px 0px 60px;
+}
+
+.testimonial-section .testimonial-para {
+  text-align: center;
+  max-width: 910px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #222222;
+  margin-bottom: 24px;
+}
+
+.testimonial-section .review-author {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 0px;
+}
+
+.testimonial-section .review-position {
+  margin-bottom: 0px;
+  font-size: 14px;
+  color: #ea3a09;
+  font-weight: 400;
+  text-align: center;
+}
+
+.testimonial-section .slider-controls {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.testimonial-section .swiper-pagination-bullet {
+  margin: 0px 5px;
+  width: 10px;
+  height: 10px;
+}
+
+.testimonial-section .swiper-pagination-bullet-active {
+  background: #ea3a09;
+}
+.testimonial-section .row {
+  position: relative;
+}
+
+.testimonial-section .testimonials-side-images span {
+  display: inline-block;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  position: absolute;
+}
+
+.testimonial-section .testimonials-side-images span img {
+  width: 100%;
+}
+
+.testimonial-section .testimonials-side-images .testimonials-images-top-left {
+  top: 46%;
+  left: 0px;
+}
+
+.testimonial-section .testimonials-side-images .testimonials-images-bottom-left {
+  bottom: 20px;
+  left: 0px;
+}
+
+.testimonial-section .testimonials-side-images .testimonials-images-bottom-right {
+  bottom: 70px;
+  right: 0px;
+}
+
+.testimonial-section .testimonials-side-images .testimonials-images-top-right {
+  top: 30%;
+  right: 0px;
+}
+/* News Feed */
+.news-feed-section .news-feed-container {
+  display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px !important;
+}
+
+.news-feed-section {
+  padding: 40px 0px 100px;
+}
+
+.news-feed-section .news-feed-content {
+  max-width: 348px;
+  position: relative;
+  border-radius: 4px;
+  border: 1px solid #dedede;
+}
+
+.news-feed-section .news-feed-container > div {
+  padding: 10px !important;
+  box-sizing: border-box;
+}
+
+.news-feed-section .news-detail {
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.news-feed-section .news-heading {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.news-feed-section .news-author {
+  font-size: 12px;
+  color: #818181;
+  margin-bottom: 28px;
+}
+
+.news-feed-section .news-para {
+  font-size: 14px;
+  color: #222222;
+  margin-bottom: 22px;
+  line-height: 1.3;
+}
+
+.news-feed-section .news-read-more.btn {
+  background: #ea3a09;
+  border-color: #ea3a09;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.news-feed-section .news-read-more.btn:hover {
+  background: #ffffff;
+  color: #ea3a09;
+  border: 1px solid #ea3a09;
+}
+
+.news-feed-section .news-date {
+  position: absolute;
+  background: red;
+  top: 0px;
+  left: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+.news-feed-section .news-date hr {
+  background: #ffffff;
+  height: 1px;
+  display: block;
+  margin: 3px 0px;
+  width: 87%;
+  opacity: 1;
+}
+.news-feed-section .news-date span {
+  display: block;
+  font-size: 12px;
+}
+.news-feed-section .news-feed-content > img {
+  width: 100%;
+}
+/* Register */
+.register-container {
+  background: url('./marathon-images/bottom-banner-background.png');
+  padding: 30px !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+    border-radius: 4px;
+}
+.register-container .register-image{
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+
+.register-container .register-heading {
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.register-container .register-para {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.register-container .register-now {
+  color: #ea3a09;
+  background: #ffffff;
+  width: 138px;
+  height: 38px;
+  font-size: 14px;
+  border: 1px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-container .register-now:hover {
+  border: 1px solid #ea3a09;
+  color: #ffffff;
+  background: #ea3a09;
+}
+.register-container .register-image img {
+  width: 100%;
+}
+
+/* Footer */
+footer.footer {
+  background: #18171c;
+  padding-top: 120px;
+  position: relative;
+  margin-top: -60px;
+}
+footer:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  background: url('./marathon-images/area-of-run-top-strip.png');
+  left: 0px;
+  top: -13px;
+  height: 60px;
+  transform: rotateZ(180deg);
+}
+.footer .footer-heading {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+  position: relative;
+  line-height: 20px;
+  padding-bottom: 10px;
+}
+.footer .footer-heading:after {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 3px;
+  background: red;
+  bottom: 0px;
+}
+.footer .copyright {
+  text-align: center;
+  margin-bottom: 22px;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.footer .footer-copyright{
+  border-top: 1px solid #38373c !important;
+  margin-top: 20px !important;
+}
+html body .footer .footer-para{
+  line-height: 24px;
+}
+html body .footer .footer-para,
+html body .footer .list-unstyled li a {
+  font-size: 14px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 28px;
+}
+html body .footer .ftco-footer-social {
+  display: flex;
+  align-items: center;
+}
+
+html body .footer .ftco-footer-social li {
+  list-style: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+html body .footer .footer-gallary a img {
+  width: 100%;
+  border: 1px solid transparent;
+}
+
+html body .footer .footer-gallary a:hover {
+  border: 1px solid red;
+}
+
+html body .footer .footer-gallary a{
+  display: inline-block;
+  border-radius: 0px;
+}
+.footer-gallary .row.no-gutters > .col-4 {
+  width: auto;
+}
+
+
+@media screen and (min-width: 992px) {
+  /* Event Details */
+  .event-details-section .event-right-section {
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.event-details-section .event-left-section {
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+}
+
+@media screen and (max-width:991px) {
+  /* Header */
+  .main-header .navbar-nav {
+    align-items: flex-start;
+  }
+
+  .main-header .navbar-nav > .nav-item:nth-child(2) .nav-link {
+      margin: 0px;
+  }
+
+  .nav-right {
+      margin-left: 0px;
+      justify-content: flex-start;
+  }
+  /* Area for run */
+
+  .area-inr.d-flex {
+    flex-direction: column;
+  }
+
+  .area-img-conteiner {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+  }
+
+  .area-img-conteiner {
+    max-width: 250px;
+}
+
+.area-img-conteiner img {
+    width: 100%;
+}
+
+/* Event Section */
+.event-details-content {
+  flex-direction: column;
+}
+
+.event-left-section {
+  margin-bottom: 20px;
+}
+
+.event-details-section .event-left-section .event-points {
+  width: 50px;
+}
+
+.event-details-section .event-left-section .event-heading {
+  width: calc(100% - 32px);
+}
+
+/* Register Section */
+
+.register-section {
+  padding-top: 100px;
+}
+
+.register-section .register-container .register-image {
+  position: static;
+  width: 100%;
+  max-width: 374px;
+  margin-top: -194px;
+  margin-bottom: 20px;
+}
+
+.register-section .register-content {
+  width: 100%;
+}
+
+.register-section .register-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+
+/* Hero */
+
+html body .hero .hero-heading {
+  font-size: 42px;
+}
+
+html body .hero .top-sub-heading {
+  font-size: 22px;
+}
+
+html body .hero .sub-heading {
+  font-size: 31px;
+}
+
+html body .hero .event-date, 
+html body .hero .event-time {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+html body .hero .hero-para {
+  margin-top: 42px;
+}
+
+html body .hero .button-container .event-link {
+  width: 100%;
+  height: 60px;
+}
+
+  html body .section-title{
+    font-size: 24px;
+  }
+
+  /* Area of run */
+  .area-of-run .area-address{
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .area-of-run .area-img-conteiner{
+    max-width: 180px;
+  }
+
+  .area-img-conteiner img {
+    width: 100%;
+  }
+
+  /* Event Details */
+  .event-details-section .event-left-section .event-heading {
+      font-size: 18px;
+  }
+
+  .event-details-section .event-left-section .event-points {
+      font-size: 20px;
+      width: 32px;
+      position: relative;
+      top: 2px;
+  }
+
+  .event-details-section .event-left-section .event-heading br {
+      display: none;
+  }
+  /* Photo Gallery */
+  html body .event-gallery-section .gallery-details .btn {
+    font-size: 13px;
+  }
+  html body .event-gallery-section .gallery-details .past-events {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  html body .event-gallery-section .gallery-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Testimonial */
+  .testimonials-side-images {
+    display: none;
+  }
+
+  /* News Feed */
+  html body .news-feed-section .news-feed-container > div{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  /* Register */
+
+  html body .register-section .register-container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  html body .register-container .register-heading {
+      font-size: 22px;
+  }
+
+  html body .register-container .register-para {
+      font-size: 18px;
+  }
+
+  html body .register-container .register-now {
+      width: 100%;
+      font-size: 16px;
+      height: 42px;
+  }
+}
+@media screen and (max-width:350px) {
+  html body .event-gallery-section .gallery-details a.past-events{
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  html body .event-gallery-section .gallery-details a.btn {
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+}
