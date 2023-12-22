@@ -13,12 +13,12 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
         $banner_sub_heading = $_POST['banner_sub_heading'];
         $banner_date = $_POST['banner_date'];
         $banner_time = $_POST['banner_time'];
-        $banner_desc = $_POST['banner_desc'];
+        $banner_desc = urlencode($_POST['banner_desc']);
         $banner_btn_action = $_POST['banner_btn_action'];
         $banner_image = $_FILES['banner_image']['name'];
         $section_id = $_POST['section_id'];
 
-        if ($group_name != "" &&  $group_desc != "" && $banner_status != "" && $banner_text != "" && $banner_heading != "" && $banner_sub_heading != "" &&  $banner_date != "" && $banner_time != "" && $banner_btn_action != "" && $banner_image != "" && $section_id != "") {
+        if ($group_name != "" && $group_desc != "" && $banner_status != "" && $banner_text != "" && $banner_heading != "" && $banner_sub_heading != "" && $banner_date != "" && $banner_time != "" && $banner_btn_action != "" && $banner_image != "" && $section_id != "") {
             $qry_group = "INSERT INTO `grt_section_group`( `client_id`, `section_id`, `section_group_title`, `section_group_desc`, `status`) VALUES ('$_SESSION[active_user]','$section_id','$group_name','$group_desc','$banner_status')";
             $qry_group_res = $banner_backend->data_insert($qry_group);
             if ($qry_group_res != 0) {
@@ -46,7 +46,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
                                 alert("Banner Added !");
                                 window.location.href = './banner_group?sectionid=<?= $section_id ?>'
                             </script>
-                    <?php }
+                        <?php }
                     } else {
                         echo "failed to move Images";
                     }
@@ -55,7 +55,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
                         alert("Only JPG PNG JPEG Type Accepted !");
                         history.back(-1);
                     </script>
-                <?php   }
+                <?php }
             } else { ?>
                 <script>
                     alert("Fail TO create Group !");
@@ -68,6 +68,6 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
                 history.back(-1);
             </script>
 
-<?php }
+        <?php }
     }
 }

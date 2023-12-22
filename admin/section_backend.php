@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['add_new_event'])) {
 
-        print_r($_POST);
+
         if ($_POST['text'] != "" && $_POST['heading_text'] != '' && $_POST['group_id'] != "") {
 
             $text = $_POST['text'];
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $richtext = urlencode($richtext);
             $client_id = $_SESSION['active_user'];
             $group_id = $_POST['group_id'];
-            $heading_text = $_POST['heading_text'];
+            $heading_text = urlencode($_POST['heading_text']);
 
             $qry_event = "INSERT INTO `grt_section_events`(`section_group_id`, `section_text`, `section_heading`, `section_richtext`,`section_sequence`) VALUES ('$group_id','$text',
             '$heading_text','$richtext','0')";
@@ -84,9 +84,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($qry_res != 0) { ?>
                 <script>
                     alert("group Created");
-                    window.location.href = './section_event_details?sectionid=<?= $sectionid ?>';
+                    window.location.href = './section_event_add?sectionid=<?= $sectionid ?>';
                 </script>
-<?php   }
+            <?php }
         }
     }
 
