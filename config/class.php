@@ -151,10 +151,9 @@ class Db_functions
             $banner_desc = $banner_data['banner_desc'];
             $banner_bnt_action = $banner_data['banner_bnt_action'];
 
-            ?>
+        ?>
 
-            <div class="hero col-12"
-                style="background:url(./admin/assets/images/banners/<?= $banner_filename ?>); background-size: cover; background-position: center center; background-repeat: no-repeat; padding-top: 77px; padding-bottom: 77px; ">
+            <div class="hero col-12" style="background:url(./admin/assets/images/banners/<?= $banner_filename ?>); background-size: cover; background-position: center center; background-repeat: no-repeat; padding-top: 77px; padding-bottom: 77px; ">
                 <div class="container">
                     <div class="row">
                         <p class="top-sub-heading">
@@ -257,7 +256,7 @@ class Db_functions
                             $event_text = $value['section_text'];
                             $event_title = urldecode($value['section_heading']);
                             $event_richtext = $value['section_richtext'];
-                            ?>
+                    ?>
 
                             <div class="event-details-container">
                                 <div class="event-details-content">
@@ -279,7 +278,7 @@ class Db_functions
 
                             </div>
 
-                        <?php }
+                    <?php }
                     }
 
 
@@ -290,7 +289,7 @@ class Db_functions
                 </div>
             </div>
         </div>
-        <?php
+    <?php
 
     }
     //events 
@@ -329,13 +328,12 @@ class Db_functions
 
                                     <div class="col-12 col-md-6 col-lg-4 p-1">
                                         <a href="#" class="img" id="imageresource" id="pop">
-                                            <img src="<?= $image_name ?>" alt="<?= $image_alt ?>" title="<?= $image_title ?>"
-                                                id="imageresource" s>
+                                            <img src="<?= $image_name ?>" alt="<?= $image_alt ?>" title="<?= $image_title ?>" id="imageresource" s>
                                         </a>
                                     </div>
 
 
-                                <?php }
+                            <?php }
                             }
 
                             ?>
@@ -356,29 +354,23 @@ class Db_functions
 
     //testmonils
 
-    function section_testimonial()
+    function section_testimonial($title, $des, $groupid)
     { ?>
         <div class="testimonial-section">
             <div class="container">
                 <div class="row">
-                    <p class="title-top">Testimonials</p>
-                    <h2 class="section-title">What Client Say’s</h2>
+                    <p class="title-top"><?= urldecode($des) ?></p>
+                    <h2 class="section-title"><?= urldecode($title) ?></h2>
                     <div class="testimonials-side-images">
-                        <span class="testimonials-images-top-left"><img src="./marathon-images/testimonial-image-right.png"
-                                alt=""></span>
-                        <span class="testimonials-images-top-right"><img src="./marathon-images/testimonial-image-right.png"
-                                alt=""></span>
-                        <span class="testimonials-images-bottom-left"><img src="./marathon-images/testimonial-image-right.png"
-                                alt=""></span>
-                        <span class="testimonials-images-bottom-right"><img src="./marathon-images/testimonial-image-right.png"
-                                alt=""></span>
+                        <span class="testimonials-images-top-left"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
+                        <span class="testimonials-images-top-right"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
+                        <span class="testimonials-images-bottom-left"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
+                        <span class="testimonials-images-bottom-right"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
                     </div>
                     <div class="swiper testimonial">
                         <div class="swiper-container swiper-container-horizontal">
-                            <div class="swiper-wrapper "
-                                style="transform: translate3d(-1220px, 0px, 0px); transition-duration: 0ms;">
-                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="3"
-                                    style="width: 1220px;">
+                            <div class="swiper-wrapper " style="transform: translate3d(-1220px, 0px, 0px); transition-duration: 0ms;">
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="3" style="width: 1220px;">
                                     <div class="wrapper">
                                         <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
                                         <img class="star" src="./marathon-images/testimonial-star.png" alt="">
@@ -394,8 +386,7 @@ class Db_functions
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0"
-                                    style="width: 1220px;">
+                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1220px;">
                                     <div class="wrapper">
                                         <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
                                         <img class="star" src="./marathon-images/testimonial-star.png" alt="">
@@ -443,8 +434,7 @@ class Db_functions
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="3"
-                                    style="width: 1220px;">
+                                <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="3" style="width: 1220px;">
                                     <div class="wrapper">
                                         <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
                                         <img class="star" src="./marathon-images/testimonial-star.png" alt="">
@@ -460,8 +450,7 @@ class Db_functions
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
-                                    data-swiper-slide-index="0" style="width: 1220px;">
+                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1220px;">
                                     <div class="wrapper">
                                         <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
                                         <img class="star" src="./marathon-images/testimonial-star.png" alt="">
@@ -481,10 +470,7 @@ class Db_functions
                             <!-- <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>     -->
                             <div class="slider-controls">
-                                <div class="slider__pagination swiper-pagination-clickable swiper-pagination-bullets"><span
-                                        class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
-                                        class="swiper-pagination-bullet"></span><span
-                                        class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
+                                <div class="slider__pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
                                 </div>
                             </div>
                         </div>
@@ -600,6 +586,18 @@ class Db_functions
             </div>
         </div>
 
-    <?php }
+<?php }
+
+
+    function section_custom($title, $desc, $groupid)
+    {
+        $qry_custom = "SELECT * FROM `grt_section_custom` WHERE section_group_id=$groupid";
+        $qry_custom_res = $this->data_fetch($qry_custom);
+        if ($qry_custom_res != 0) {
+            $custom_section_data = urldecode($qry_custom_res[0]['section_content']);
+
+            echo html_entity_decode($custom_section_data);
+        }
+    }
 }
 //section Registration
