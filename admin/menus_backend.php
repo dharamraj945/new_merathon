@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $menu_sequence = $_POST['menu_sequence'];
             $menu_action_type = $_POST['menu_action_type'];
 
-            $menu_handler =  $menu_obj->RemoveSpecialChar($menu_name);
+            $menu_handler = $menu_obj->RemoveSpecialChar($menu_name);
 
             //insert Menu Data in Database
 
             //check for handler existance
-            $is_exist_handler = "SELECT menu_handler FROM `section_menu` WHERE menu_handler= '$menu_handler'";
+            $is_exist_handler = "SELECT menu_handler FROM `grt_menu` WHERE menu_handler= '$menu_handler'";
             $exist_result = $menu_obj->data_fetch($is_exist_handler);
 
             echo $exist_result;
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($menu_type == 0) {
 
 
-            $qry = "SELECT * FROM `pages` WHERE page_status=0";
+            $qry = "SELECT * FROM `grt_pages` WHERE page_status=0";
             $qry_result = $menu_obj->data_fetch($qry);
             if ($qry_result != 0) {
                 echo '<label>Select Page</label>';
@@ -68,11 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 foreach ($qry_result as $key => $value) { ?>
 
 
-                    <option value="<?= $value['id'] ?>"><?= $value['page_title'] ?></option>
+                    <option value="<?= $value['id'] ?>">
+                        <?= $value['page_title'] ?>
+                    </option>
 
 
 
-                <?php  }
+                <?php }
 
                 echo '</select>';
             } else { ?>
@@ -86,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="">Custom Url</label>
             <input value="" type="url" class="form-control" id="menu_type_value" placeholder="Url" name="menu_action" required>
 
-<?php }
+        <?php }
     }
     //ajax call for get  pages  End
 

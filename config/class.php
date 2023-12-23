@@ -151,9 +151,10 @@ class Db_functions
             $banner_desc = $banner_data['banner_desc'];
             $banner_bnt_action = $banner_data['banner_bnt_action'];
 
-        ?>
+            ?>
 
-            <div class="hero col-12" style="background:url(./admin/assets/images/banners/<?= $banner_filename ?>); background-size: cover; background-position: center center; background-repeat: no-repeat; padding-top: 77px; padding-bottom: 77px; ">
+            <div class="hero col-12"
+                style="background:url(./admin/assets/images/banners/<?= $banner_filename ?>); background-size: cover; background-position: center center; background-repeat: no-repeat; padding-top: 77px; padding-bottom: 77px; ">
                 <div class="container">
                     <div class="row">
                         <p class="top-sub-heading">
@@ -256,7 +257,7 @@ class Db_functions
                             $event_text = $value['section_text'];
                             $event_title = urldecode($value['section_heading']);
                             $event_richtext = $value['section_richtext'];
-                    ?>
+                            ?>
 
                             <div class="event-details-container">
                                 <div class="event-details-content">
@@ -278,7 +279,7 @@ class Db_functions
 
                             </div>
 
-                    <?php }
+                        <?php }
                     }
 
 
@@ -289,7 +290,7 @@ class Db_functions
                 </div>
             </div>
         </div>
-    <?php
+        <?php
 
     }
     //events 
@@ -328,12 +329,13 @@ class Db_functions
 
                                     <div class="col-12 col-md-6 col-lg-4 p-1">
                                         <a href="#" class="img" id="imageresource" id="pop">
-                                            <img src="<?= $image_name ?>" alt="<?= $image_alt ?>" title="<?= $image_title ?>" id="imageresource" s>
+                                            <img src="<?= $image_name ?>" alt="<?= $image_alt ?>" title="<?= $image_title ?>"
+                                                id="imageresource" s>
                                         </a>
                                     </div>
 
 
-                            <?php }
+                                <?php }
                             }
 
                             ?>
@@ -356,122 +358,84 @@ class Db_functions
 
     function section_testimonial($title, $des, $groupid)
     { ?>
+        <?php
+        $qry_testimonial = "SELECT * FROM   `grt_section_testimonials` WHERE section_group_id=$groupid";
+        $qry_res = $this->data_fetch($qry_testimonial);
+
+        ?>
+        <!-- testimonial-section -->
         <div class="testimonial-section">
             <div class="container">
                 <div class="row">
-                    <p class="title-top"><?= urldecode($des) ?></p>
-                    <h2 class="section-title"><?= urldecode($title) ?></h2>
+                    <p class="title-top">Testimonials</p>
+                    <h2 class="section-title">What Client Say’s</h2>
                     <div class="testimonials-side-images">
-                        <span class="testimonials-images-top-left"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
-                        <span class="testimonials-images-top-right"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
-                        <span class="testimonials-images-bottom-left"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
-                        <span class="testimonials-images-bottom-right"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
+                        <span class="testimonials-images-top-left"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
+                        <span class="testimonials-images-top-right"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
+                        <span class="testimonials-images-bottom-left"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
+                        <span class="testimonials-images-bottom-right"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
                     </div>
                     <div class="swiper testimonial">
-                        <div class="swiper-container swiper-container-horizontal">
-                            <div class="swiper-wrapper " style="transform: translate3d(-1220px, 0px, 0px); transition-duration: 0ms;">
-                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="3" style="width: 1220px;">
-                                    <div class="wrapper">
-                                        <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
-                                        <img class="star" src="./marathon-images/testimonial-star.png" alt="">
-                                        <div class="testimonial-content">
-                                            <p class="testimonial-para"> Taking seamless key performance indicators offline to
-                                                maximise the long tail. Keeping your eye on the ball while performing a deep
-                                                dive. Completely synergize resource taxing relationships via premier niche
-                                                markets. Professionally cultivate one-to-one customer. </p>
-                                            <div class="testimonial-reference">
-                                                <p class="review-author">Richard Hartisona</p>
-                                                <p class="review-position">Founder</p>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper ">
+                                <?php
+
+                                if ($qry_res != 0) {
+
+                                    foreach ($qry_res as $key => $value) { ?>
+
+                                        <div class="swiper-slide">
+                                            <div class="wrapper">
+                                                <img class="user-image"
+                                                    src="./admin/assets/images/testimonials/<?= $value['section_image'] ?>" alt=""
+                                                    style="width:100px; height:100px;">
+                                                <div class="">
+                                                    <?php
+
+                                                    for ($i = 0; $i < $value['section_rating']; $i++) { ?>
+
+                                                        <object class="star" data="./admin/assets/images/svg/star-fill.svg"
+                                                            type="image/svg+xml"></object>
+                                                    <?php }
+                                                    ?>
+
+                                                </div>
+
+
+
+                                                <div class="testimonial-content">
+                                                    <p class="testimonial-para">
+                                                        <?= urldecode($value['section_desc']) ?>
+                                                    </p>
+                                                    <div class="testimonial-reference">
+                                                        <p class="review-author">
+                                                            <?= urldecode($value['section_cus_name']) ?>
+                                                        </p>
+                                                        <p class="review-position">
+                                                            <?= urldecode($value['section_cus_position']) ?>
+
+
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 1220px;">
-                                    <div class="wrapper">
-                                        <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
-                                        <img class="star" src="./marathon-images/testimonial-star.png" alt="">
-                                        <div class="testimonial-content">
-                                            <p class="testimonial-para"> Taking seamless key performance indicators offline to
-                                                maximise the long tail. Keeping your eye on the ball while performing a deep
-                                                dive. Completely synergize resource taxing relationships via premier niche
-                                                markets. Professionally cultivate one-to-one customer. </p>
-                                            <div class="testimonial-reference">
-                                                <p class="review-author">Richard Hartisona</p>
-                                                <p class="review-position">Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1" style="width: 1220px;">
-                                    <div class="wrapper">
-                                        <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
-                                        <img class="star" src="./marathon-images/testimonial-star.png" alt="">
-                                        <div class="testimonial-content">
-                                            <p class="testimonial-para"> Taking seamless key performance indicators offline to
-                                                maximise the long tail. Keeping your eye on the ball while performing a deep
-                                                dive. Completely synergize resource taxing relationships via premier niche
-                                                markets. Professionally cultivate one-to-one customer. </p>
-                                            <div class="testimonial-reference">
-                                                <p class="review-author">Richard Hartisona</p>
-                                                <p class="review-position">Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide" data-swiper-slide-index="2" style="width: 1220px;">
-                                    <div class="wrapper">
-                                        <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
-                                        <img class="star" src="./marathon-images/testimonial-star.png" alt="">
-                                        <div class="testimonial-content">
-                                            <p class="testimonial-para"> Taking seamless key performance indicators offline to
-                                                maximise the long tail. Keeping your eye on the ball while performing a deep
-                                                dive. Completely synergize resource taxing relationships via premier niche
-                                                markets. Professionally cultivate one-to-one customer. </p>
-                                            <div class="testimonial-reference">
-                                                <p class="review-author">Richard Hartisona</p>
-                                                <p class="review-position">Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide swiper-slide-duplicate-prev" data-swiper-slide-index="3" style="width: 1220px;">
-                                    <div class="wrapper">
-                                        <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
-                                        <img class="star" src="./marathon-images/testimonial-star.png" alt="">
-                                        <div class="testimonial-content">
-                                            <p class="testimonial-para"> Taking seamless key performance indicators offline to
-                                                maximise the long tail. Keeping your eye on the ball while performing a deep
-                                                dive. Completely synergize resource taxing relationships via premier niche
-                                                markets. Professionally cultivate one-to-one customer. </p>
-                                            <div class="testimonial-reference">
-                                                <p class="review-author">Richard Hartisona</p>
-                                                <p class="review-position">Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="0" style="width: 1220px;">
-                                    <div class="wrapper">
-                                        <img class="user-image" src="./marathon-images/testimonial-image.png" alt="">
-                                        <img class="star" src="./marathon-images/testimonial-star.png" alt="">
-                                        <div class="testimonial-content">
-                                            <p class="testimonial-para"> Taking seamless key performance indicators offline to
-                                                maximise the long tail. Keeping your eye on the ball while performing a deep
-                                                dive. Completely synergize resource taxing relationships via premier niche
-                                                markets. Professionally cultivate one-to-one customer. </p>
-                                            <div class="testimonial-reference">
-                                                <p class="review-author">Richard Hartisona</p>
-                                                <p class="review-position">Founder</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                    <?php }
+
+                                }
+                                ?>
+
+
                             </div>
                             <!-- <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>     -->
                             <div class="slider-controls">
-                                <div class="slider__pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
-                                </div>
+                                <div class="slider__pagination"></div>
                             </div>
                         </div>
                     </div>
@@ -485,72 +449,58 @@ class Db_functions
 
     //blogs
 
-    function section_blog()
+    function section_blog($title, $desc, $groupid)
     { ?>
 
         <div class="news-feed-section">
             <div class="container">
                 <div class="row">
-                    <p class="title-top">Latest Blogs</p>
-                    <h2 class="section-title">Latest News Feed</h2>
+                    <p class="title-top">
+                        <?= $desc ?>
+                    </p>
+                    <h2 class="section-title">
+                        <?= $title ?>
+                    </h2>
                     <div class="news-feed-container">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="news-feed-content">
-                                <div class="news-date">
-                                    <span>11 Nov</span>
-                                    <hr>
-                                    <span>2023</span>
-                                </div>
-                                <img src="./marathon-images/news-feed-image-1.png" alt="news-feed">
-                                <div class="news-detail">
-                                    <p class="news-heading">5 Reasons You Should Try Trail Running</p>
-                                    <p class="news-author">By Tanya Agarwal</p>
-                                    <p class="news-para">Trail running is almost a discovery. Popular as Trailathons, there is a
-                                        big reason trail running events ...
-                                        have found a budding craze amongst the running community all over the world.</p>
-                                    <a href="#" class="news-read-more btn">Read More</a>
-                                </div>
-                            </div>
+                        <?php
+                        $qry_blog = "SELECT * FROM `grt_section_blog` WHERE section_group_id=$groupid";
+                        $qry_blog_res = $this->data_fetch($qry_blog);
+                        if ($qry_blog_res != 0) {
 
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="news-feed-content">
-                                <div class="news-date">
-                                    <span>24 Nov</span>
-                                    <hr>
-                                    <span>2023</span>
-                                </div>
-                                <img src="./marathon-images/news-feed-image-2.png" alt="news-feed">
-                                <div class="news-detail">
-                                    <p class="news-heading">5 Reasons You Should Try Trail Running</p>
-                                    <p class="news-author">By Tanya Agarwal</p>
-                                    <p class="news-para">Trail running is almost a discovery. Popular as Trailathons, there is a
-                                        big reason trail running events ...
-                                        have found a budding craze amongst the running community all over the world.</p>
-                                    <a href="#" class="news-read-more btn">Read More</a>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="news-feed-content">
-                                <div class="news-date">
-                                    <span>01 Dec</span>
-                                    <hr>
-                                    <span>2023</span>
-                                </div>
-                                <img src="./marathon-images/news-feed-image-1.png" alt="news-feed">
-                                <div class="news-detail">
-                                    <p class="news-heading">5 Reasons You Should Try Trail Running</p>
-                                    <p class="news-author">By Tanya Agarwal</p>
-                                    <p class="news-para">Trail running is almost a discovery. Popular as Trailathons, there is a
-                                        big reason trail running events ...
-                                        have found a budding craze amongst the running community all over the world.</p>
-                                    <a href="#" class="news-read-more btn">Read More</a>
-                                </div>
-                            </div>
+                            foreach ($qry_blog_res as $key => $value) { ?>
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="news-feed-content">
+                                        <div class="news-date">
+                                            <span>11 Nov</span>
+                                            <hr>
+                                            <span>2023</span>
+                                        </div>
+                                        <img src="./admin/assets/images/bloge/<?= $value['bloge_image'] ?>" alt="news-feed">
+                                        <div class="news-detail">
+                                            <p class="news-heading">
+                                                <?= urldecode(substr($value['bloge_heading'], 0, 100)) . "..." ?>
+                                            </p>
+                                            <p class="news-author">
+                                                <?= urldecode($value['bloge_author']) ?>
+                                            </p>
+                                            <p class="news-para">
+                                                <?= urldecode(substr(strip_tags($value['bloge_content']), 0, 100)) . "..." ?>
+                                            </p>
+                                            <a href="<?= $value['bloge_action'] ?>" class="news-read-more btn">Read More</a>
+                                        </div>
+                                    </div>
 
-                        </div>
+                                </div>
+                            <?php }
+
+
+
+
+                        }
+                        ?>
+
+
 
                     </div>
                 </div>
@@ -586,7 +536,7 @@ class Db_functions
             </div>
         </div>
 
-<?php }
+    <?php }
 
 
     function section_custom($title, $desc, $groupid)

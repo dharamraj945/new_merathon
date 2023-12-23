@@ -33,7 +33,7 @@ $menu_data = new Db_functions();
 
                         <?php
 
-                        $qry_menu_data = "SELECT * FROM `section_menu`";
+                        $qry_menu_data = "SELECT * FROM `grt_menu`";
 
                         $qry_result = $menu_data->data_fetch($qry_menu_data);
 
