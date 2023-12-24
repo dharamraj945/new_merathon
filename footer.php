@@ -1,4 +1,5 @@
 <!-- Footer -->
+
 <footer class="footer">
     <div class="container">
         <div class="row" style="
@@ -12,14 +13,11 @@
                     </p>
                 </div>
                 <ul class="ftco-footer-social p-0">
-                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title=""
-                            data-original-title="Facebook"><img src="./marathon-images/facebook-icon.png" alt=""></a>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"><img src="./marathon-images/facebook-icon.png" alt=""></a>
                     </li>
-                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title=""
-                            data-original-title="youtube"><img src="./marathon-images/youtube-icon.png" alt=""></a>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="youtube"><img src="./marathon-images/youtube-icon.png" alt=""></a>
                     </li>
-                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title=""
-                            data-original-title="Instagram"><img src="./marathon-images/instagram.png" alt=""></a>
+                    <li class="ftco-animate"><a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram"><img src="./marathon-images/instagram.png" alt=""></a>
                     </li>
                 </ul>
 
@@ -91,12 +89,12 @@
     </div>
 </footer>
 
+
 <!-- Footer End -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
 <script>
-
     //Swiper Slider
     var egswiper = new Swiper('.testimonial .swiper-container', {
         // Optional parameters
@@ -115,7 +113,6 @@
         //   prevEl: '.swiper-button-prev',
         // }
     })
-
 </script>
 
 </body>

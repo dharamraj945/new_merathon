@@ -9,11 +9,12 @@ if (isset($_GET['menu_id'])) {
 }
 
 
-$qry_fetch_menus = "SELECT * FROM `section_menu` WHERE id=$menu_id";
+$qry_fetch_menus = "SELECT * FROM `grt_menu` WHERE id=$menu_id";
+
 $result = $menu_update_obj->data_fetch($qry_fetch_menus);
 
 $result = $result[0];
-print_r($result);
+
 
 ?>
 <div class="row">
@@ -83,7 +84,7 @@ print_r($result);
 
                 <div id="result_ajax" class="form-group">
 
-                    <!-- ajax data apppends here  -->
+
                 </div>
 
 

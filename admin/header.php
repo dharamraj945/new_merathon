@@ -50,7 +50,7 @@ else
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
                 <div class="sidebar-brand-icon">
                     <!-- <img src="img/logo/logo2.png"> -->
-                    <span width="50px"> DIGITAL VYAPAR SEVA</span>
+                    <span width="50px"> Trail-a-Thone</span>
                 </div>
 
             </a>

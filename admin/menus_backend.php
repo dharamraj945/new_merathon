@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $is_exist_handler = "SELECT menu_handler FROM `grt_menu` WHERE menu_handler= '$menu_handler'";
             $exist_result = $menu_obj->data_fetch($is_exist_handler);
 
-            echo $exist_result;
+
             if ($exist_result != 0) {
 
                 echo "<script>alert('Handler Aready Exist')
@@ -36,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-            $qry = "INSERT INTO `section_menu`(`menu_name`, `menu_handler`, `menu_type`, `menu_action`, `menu_status`, `menu_seq`,`menu_action_type`) VALUES ('$menu_name','$menu_handler','$menu_type','$menu_action','$menu_status','$menu_sequence','$menu_action_type')";
+            $qry = "INSERT INTO `grt_menu`(`menu_name`, `menu_handler`, `menu_type`, `menu_action`, `menu_status`, `menu_seq`,`menu_action_type`) VALUES ('$menu_name','$menu_handler','$menu_type','$menu_action','$menu_status','$menu_sequence','$menu_action_type')";
+
             $result = $menu_obj->data_insert($qry);
 
             if ($result != 0) {
@@ -60,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($menu_type == 0) {
 
 
-            $qry = "SELECT * FROM `grt_pages` WHERE page_status=0";
+            $qry = "SELECT * FROM `grt_pages` ";
             $qry_result = $menu_obj->data_fetch($qry);
             if ($qry_result != 0) {
                 echo '<label>Select Page</label>';
@@ -88,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="">Custom Url</label>
             <input value="" type="url" class="form-control" id="menu_type_value" placeholder="Url" name="menu_action" required>
 
-        <?php }
+<?php }
     }
     //ajax call for get  pages  End
 
@@ -106,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if (isset($_GET['del_menu'])) {
         $del_id = $_GET['del_menu'];
 
-        $qry_delete_menu = "DELETE FROM `section_menu` WHERE id=$del_id";
+        $qry_delete_menu = "DELETE FROM `grt_menu` WHERE id=$del_id";
         $result = $menu_obj->data_delete($qry_delete_menu);
 
         if ($result != 0) {

@@ -41,7 +41,7 @@ $menu_data = new Db_functions();
                             $sno = 0;
                             foreach ($qry_result as $key => $value) {
                                 $sno++;
-                                ?>
+                        ?>
 
                                 <tr>
                                     <td><a href="#">
@@ -59,7 +59,7 @@ $menu_data = new Db_functions();
                                         // 1 for custom Url                                        
                                         if ($value['menu_action_type'] == 0) {
 
-                                            $qry_page_name = "SELECT `page_title` FROM `pages` WHERE id=$value[menu_action]";
+                                            $qry_page_name = "SELECT `page_title` FROM `grt_pages` WHERE id=$value[menu_action]";
                                             $qry_result_page = $menu_data->data_fetch($qry_page_name);
 
                                             foreach ($qry_result_page as $key => $value_pageName) {
@@ -99,20 +99,16 @@ $menu_data = new Db_functions();
                                     </td>
 
 
-                                    <td><a href="./menu_update?menu_id=<?= $value['id'] ?>"
-                                            class="btn btn-sm   btn-primary">Edit</a>
-                                        <button class="btn btn-sm btn-danger" data-toggle="modal"
-                                            data-target="#menu_del<?= $value['id'] ?>">Delete</button>
+                                    <td><a href="./menu_update?menu_id=<?= $value['id'] ?>" class="btn btn-sm   btn-primary">Edit</a>
+                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#menu_del<?= $value['id'] ?>">Delete</button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="menu_del<?= $value['id'] ?>" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="menu_del<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Are You Sure !</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
@@ -120,10 +116,8 @@ $menu_data = new Db_functions();
                                                         <span class="text-danger"> You won't be able to revert this !</span>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Close</button>
-                                                        <a href="./menus_backend.php?del_menu=<?php echo $value['id'] ?>"
-                                                            class="btn btn-danger">Delete</a>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <a href="./menus_backend.php?del_menu=<?php echo $value['id'] ?>" class="btn btn-danger">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,7 +128,7 @@ $menu_data = new Db_functions();
                                     </td>
                                 </tr>
 
-                            <?php }
+                        <?php }
                         } else {
                             echo "No Menu Added";
                         }
@@ -152,8 +146,7 @@ $menu_data = new Db_functions();
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -172,8 +165,7 @@ $menu_data = new Db_functions();
                             <form method="post" action="./menus_backend.php">
                                 <div class="form-group">
                                     <label>Menu Name</label>
-                                    <input type="text" class="form-control" id="exampleInputFirstName" name="menu_name"
-                                        placeholder="Name" required="">
+                                    <input type="text" class="form-control" id="exampleInputFirstName" name="menu_name" placeholder="Name" required="">
                                 </div>
                                 <div class="form-group">
                                     <label>Menu Type</label>
@@ -208,12 +200,10 @@ $menu_data = new Db_functions();
                                 </div>
                                 <div class="form-group">
                                     <label>Sequence Number</label>
-                                    <input type="number" class="form-control" id="exampleInputPasswordRepeat"
-                                        placeholder="Sequence" name="menu_sequence" required="">
+                                    <input type="number" class="form-control" id="exampleInputPasswordRepeat" placeholder="Sequence" name="menu_sequence" required="">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="add_menu"
-                                        class="btn btn-primary btn-block">Submit</button>
+                                    <button type="submit" name="add_menu" class="btn btn-primary btn-block">Submit</button>
                                 </div>
 
                             </form>
@@ -229,9 +219,9 @@ $menu_data = new Db_functions();
 </div>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
 
-        $('#menu_action').change(function () {
+        $('#menu_action').change(function() {
 
             var selectedval = $(this).val();
 
@@ -244,13 +234,13 @@ $menu_data = new Db_functions();
                     data_menu_type: selectedval
                 }, // Data to send to the server
 
-                success: function (response) {
+                success: function(response) {
                     // Handle the successful response from the server
                     $('#result_ajax').html(response);
 
                 },
 
-                error: function (error) {
+                error: function(error) {
                     // Handle errors
                     console.log('Error:', error);
                 }

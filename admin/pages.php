@@ -21,7 +21,7 @@ $qry_res = $data_page->data_fetch($qry);
                         <tr>
                             <th>Sno</th>
                             <th>Title</th>
-                            <th>Desreption</th>
+
                             <th>Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -39,14 +39,73 @@ $qry_res = $data_page->data_fetch($qry);
                                 <tr>
                                     <td><a href="#"> <?= $sno ?> </a></td>
                                     <td> <?= $value['page_title'] ?> </td>
-                                    <td>
-                                        <?= $value['page_short_desc'] ?>
-                                    </td>
+
                                     <td> <?= $value['created_date'] ?> </td>
-                                    <td><span class="badge badge-success">Active</span></td>
-                                    <td><a href="" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="./page_backend?page_id=<?= $value['id'] ?>" class="btn btn-sm btn-danger">Delete</a>
+
+                                    <td>
+
+                                        <a href="../page?page_handler=<?= $value['page_handler'] ?>" class="badge badge-primary">View</a> <span class="badge badge-success">Active</span>
+
                                     </td>
+
+                                    <td><a href="./page_edit?pageid=<?= $value['id'] ?>" class="btn btn-sm btn-primary">Edit</a>
+                                        <button data-toggle="modal" data-target="#deleid_<?= $value['id'] ?>" class="btn btn-sm btn-danger">Delete</button>
+                                        <button <?= $value['is_index_page'] == 1 ? 'disabled' : ''; ?> class="btn btn-sm btn-<?= $value['is_index_page'] == 1 ? 'success' : 'secondary' ?>" data-toggle="modal" data-target="#home_<?= $value['id'] ?>"> <?= $value['is_index_page'] == 1 ? 'Active Home Page' : 'Mark as HomePage' ?></button>
+                                    </td>
+
+
+
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="home_<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Are You Sure !</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <span class="text-success"> This Page Will Marked as Homepage</span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <a href="./page_backend.php?pageid=<?= $value['id'] ?>" class="btn btn-success">Mark</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+
+                                    <div class="modal fade" id="deleid_<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Are You Sure !</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <span class="text-danger"> This Page Will be Removed From Your Store</span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <a href="./page_backend.php?deleid=<?= $value['id'] ?>" class="btn btn-danger">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+
+
+
+
+
+
+
+
                                 </tr>
 
 
