@@ -22,20 +22,22 @@ if (isset($_GET['sectionid'])) {
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Event Group Title</label>
-                        <input name="event_title" required="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="title">
+                        <input name="event_title" required="" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="" placeholder="title">
 
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Event Short Desc</label>
-                        <input name="event_desc" required="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Descreption">
+                        <input name="event_desc" required="" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="" placeholder="Descreption">
 
                     </div>
 
                     <div class="form-group">
                         <select class="form-control" name="event_status" id="">
                             <option value="0">Active</option>
-                            <option value="0">Draft</option>
+                            <option value="1">Draft</option>
 
                         </select>
 

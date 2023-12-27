@@ -45,26 +45,44 @@ $result_data = $show_events->data_fetch($qry);
 
                             foreach ($result_data as $key => $values) {
 
-                                $sno++;                        ?>
+                                $sno++; ?>
 
                                 <tr>
-                                    <td><a href="#"><?= $sno ?></a></td>
-                                    <td><?= $values['section_group_title'] ?></td>
-                                    <td><?= $values['section_group_desc'] ?></td>
-                                    <td><?= $values['status'] ?></td>
-                                    <td><?= $values['created_date'] ?></td>
+                                    <td><a href="#">
+                                            <?= $sno ?>
+                                        </a></td>
+                                    <td>
+                                        <?= $values['section_group_title'] ?>
+                                    </td>
+                                    <td>
+                                        <?= $values['section_group_desc'] ?>
+                                    </td>
+                                    <td>
+
+                                        <span class="badge badge-<?= $values['status'] == 0 ? "success" : "warning" ?>">
+                                            <?= $values['status'] == 0 ? "Active" : "Draft" ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <?= $values['created_date'] ?>
+                                    </td>
 
 
-                                    <td><a href="./section_event_edit?eventgroupid=<?= $values['id'] ?>&sectionid=<?= $section_id ?>" class="btn btn-sm   btn-primary">Edit</a>
-                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#event_section_del">Delete</button>
+
+                                    <td><a href="./section_event_edit?eventgroupid=<?= $values['id'] ?>&sectionid=<?= $section_id ?>"
+                                            class="btn btn-sm   btn-primary">Manage</a>
+                                        <button class="btn btn-sm btn-danger" data-toggle="modal"
+                                            data-target="#group_<?= $values['id'] ?>">Delete</button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="menu_del50" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="group_<?= $values['id'] ?>" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Are You Sure !</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
                                                     </div>
@@ -72,8 +90,10 @@ $result_data = $show_events->data_fetch($qry);
                                                         <span class="text-danger"> You won't be able to revert this !</span>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <a href="./menus_backend.php?del_menu=50" class="btn btn-danger">Delete</a>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <a href="./section_backend.php?del_event=<?= $values['id'] ?>&sectionid=<?= $section_id ?>"
+                                                            class="btn btn-danger">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,7 +104,7 @@ $result_data = $show_events->data_fetch($qry);
                                     </td>
                                 </tr>
 
-                        <?php }
+                            <?php }
                         } else {
                             echo "No Result Found";
                         }

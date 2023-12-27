@@ -151,9 +151,10 @@ class Db_functions
             $banner_desc = $banner_data['banner_desc'];
             $banner_bnt_action = $banner_data['banner_bnt_action'];
 
-        ?>
+            ?>
 
-            <div class="hero col-12" style="background:url(./admin/assets/images/banners/<?= $banner_filename ?>); background-size: cover; background-position: center center; background-repeat: no-repeat; padding-top: 77px; padding-bottom: 77px; ">
+            <div class="hero col-12"
+                style="background:url(./admin/assets/images/banners/<?= $banner_filename ?>); background-size: cover; background-position: center center; background-repeat: no-repeat; padding-top: 77px; padding-bottom: 77px; ">
                 <div class="container">
                     <div class="row">
                         <p class="top-sub-heading">
@@ -256,7 +257,7 @@ class Db_functions
                             $event_text = $value['section_text'];
                             $event_title = urldecode($value['section_heading']);
                             $event_richtext = $value['section_richtext'];
-                    ?>
+                            ?>
 
                             <div class="event-details-container">
                                 <div class="event-details-content">
@@ -278,7 +279,7 @@ class Db_functions
 
                             </div>
 
-                    <?php }
+                        <?php }
                     }
 
 
@@ -289,7 +290,7 @@ class Db_functions
                 </div>
             </div>
         </div>
-    <?php
+        <?php
 
     }
     //events 
@@ -328,12 +329,13 @@ class Db_functions
 
                                     <div class="col-12 col-md-6 col-lg-4 p-1">
                                         <a href="#" class="img" id="imageresource" id="pop">
-                                            <img src="<?= $image_name ?>" alt="<?= $image_alt ?>" title="<?= $image_title ?>" id="imageresource" s>
+                                            <img src="<?= $image_name ?>" alt="<?= $image_alt ?>" title="<?= $image_title ?>"
+                                                id="imageresource" s>
                                         </a>
                                     </div>
 
 
-                            <?php }
+                                <?php }
                             }
 
                             ?>
@@ -368,10 +370,14 @@ class Db_functions
                     <p class="title-top">Testimonials</p>
                     <h2 class="section-title">What Client Say’s</h2>
                     <div class="testimonials-side-images">
-                        <span class="testimonials-images-top-left"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
-                        <span class="testimonials-images-top-right"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
-                        <span class="testimonials-images-bottom-left"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
-                        <span class="testimonials-images-bottom-right"><img src="./marathon-images/testimonial-image-right.png" alt=""></span>
+                        <span class="testimonials-images-top-left"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
+                        <span class="testimonials-images-top-right"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
+                        <span class="testimonials-images-bottom-left"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
+                        <span class="testimonials-images-bottom-right"><img src="./marathon-images/testimonial-image-right.png"
+                                alt=""></span>
                     </div>
                     <div class="swiper testimonial">
                         <div class="swiper-container">
@@ -384,13 +390,16 @@ class Db_functions
 
                                         <div class="swiper-slide">
                                             <div class="wrapper">
-                                                <img class="user-image" src="./admin/assets/images/testimonials/<?= $value['section_image'] ?>" alt="" style="width:100px; height:100px;">
+                                                <img class="user-image"
+                                                    src="./admin/assets/images/testimonials/<?= $value['section_image'] ?>" alt=""
+                                                    style="width:100px; height:100px;">
                                                 <div class="">
                                                     <?php
 
                                                     for ($i = 0; $i < $value['section_rating']; $i++) { ?>
 
-                                                        <object class="star" data="./admin/assets/images/svg/star-fill.svg" type="image/svg+xml"></object>
+                                                        <object class="star" data="./admin/assets/images/svg/star-fill.svg"
+                                                            type="image/svg+xml"></object>
                                                     <?php }
                                                     ?>
 
@@ -416,7 +425,7 @@ class Db_functions
                                             </div>
                                         </div>
 
-                                <?php }
+                                    <?php }
                                 }
                                 ?>
 
@@ -482,7 +491,7 @@ class Db_functions
                                     </div>
 
                                 </div>
-                        <?php }
+                            <?php }
                         }
                         ?>
 
@@ -522,7 +531,7 @@ class Db_functions
             </div>
         </div>
 
-<?php }
+    <?php }
 
 
     function section_custom($title, $desc, $groupid)

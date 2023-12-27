@@ -43,11 +43,15 @@ $banner_obj = new Db_functions();
                             foreach ($qry_res as $key => $value) {
                                 $sno++;
 
-                        ?>
+                                ?>
                                 <tr>
-                                    <td><a href="#"><?= $sno ?></a></td>
-                                    <td><img height="80px" width="80px" src="./assets/images/banners/<?= $value['banner_filename'] ?>" alt=""></td>
-                                    <td><?php
+                                    <td><a href="#">
+                                            <?= $sno ?>
+                                        </a></td>
+                                    <td><img height="80px" width="80px"
+                                            src="./assets/images/banners/<?= $value['banner_filename'] ?>" alt=""></td>
+                                    <td>
+                                        <?php
                                         $qry_group_name = "SELECT * FROM grt_section_group WHERE id= $value[section_group_id] ";
                                         $qry_group_name_res = $banner_obj->data_fetch($qry_group_name);
                                         if ($qry_group_name_res != 0) {
@@ -55,26 +59,34 @@ $banner_obj = new Db_functions();
                                             $banner_group_status = $qry_group_name_res[0]['status'];
                                         }
                                         echo $banner_group_name;
-                                        ?></td>
-                                    <td>
-
-                                        <span class="badge badge-<?= $banner_group_status == 0 ? "success" : "secondary" ?>"><?= $banner_group_status == 0 ? "Active" : "Draft" ?></span>
+                                        ?>
 
                                     </td>
-                                    <td><?= $value['created_date'] ?></td>
+                                    <td>
 
+                                        <span class="badge badge-<?= $banner_group_status == 0 ? "success" : "secondary" ?>">
+                                            <?= $banner_group_status == 0 ? "Active" : "Draft" ?>
+                                        </span>
 
+                                    </td>
+                                    <td>
+                                        <?= $value['created_date'] ?>
+                                    </td>
 
-                                    <td><a href="./banner_edit.php?bannerid=<?= $value['id'] ?>" class="btn btn-sm   btn-primary">Edit</a>
-                                        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#event_section_del">Delete</button>
+                                    <td><a href="./banner_edit.php?bannerid=<?= $value['id'] ?>"
+                                            class="btn btn-sm   btn-primary">Edit</a>
+                                        <button class="btn btn-sm btn-danger" data-toggle="modal"
+                                            data-target="#banner_del<?= $value['id'] ?>">Delete</button>
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="menu_del50" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="banner_del<?= $value['id'] ?>" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Are You Sure !</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
                                                     </div>
@@ -82,8 +94,10 @@ $banner_obj = new Db_functions();
                                                         <span class="text-danger"> You won't be able to revert this !</span>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        <a href="./menus_backend.php?del_menu=50" class="btn btn-danger">Delete</a>
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <a href="./banner_backend.php?del_banner=<?= $value['id'] ?>&sectionid=<?= $section_id ?>"
+                                                            class="btn btn-danger">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,7 +108,7 @@ $banner_obj = new Db_functions();
                                     </td>
                                 </tr>
 
-                        <?php
+                                <?php
                             }
                         } else {
                             echo "no Data Found";

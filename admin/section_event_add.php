@@ -1,7 +1,8 @@
 <?php
 include "./header.php";
-if (isset($_GET['group_id'])) {
+if (isset($_GET['group_id']) && isset($_GET['sectionid'])) {
     $group_id = $_GET['group_id'];
+    $sectionid = $_GET['sectionid'];
 } else {
     echo "<script>
     window.location.href='./add_section';
@@ -22,13 +23,15 @@ if (isset($_GET['group_id'])) {
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Text</label>
-                        <input name="text" required="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Text">
+                        <input name="text" required="" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="" placeholder="Text">
 
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Heading Text</label>
-                        <input name="heading_text" required="" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Heading Text">
+                        <input name="heading_text" required="" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="" placeholder="Heading Text">
 
                     </div>
                     <div class="form-group">
@@ -40,6 +43,7 @@ if (isset($_GET['group_id'])) {
                     </div>
 
                     <input type="hidden" name="group_id" value="<?= $group_id ?>">
+                    <input type="hidden" name="sectionid" value="<?= $sectionid ?>">
 
                     <div class="button">
 

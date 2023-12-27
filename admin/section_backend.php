@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $text = $_POST['text'];
 
             $richtext = $_POST['richtext'];
+            $sectionid = $_POST['sectionid'];
             $richtext = urlencode($richtext);
             $client_id = $_SESSION['active_user'];
             $group_id = $_POST['group_id'];
@@ -58,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($qry_res != 0) {
 
                 echo "<script>alert('added')
-                window.location.href='./section_event_details.';
+                window.location.href='./section_event_edit?eventgroupid=$group_id&sectionid=$sectionid';
                 </script>";
             }
         }
@@ -68,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST['add_event_group'])) {
 
-        print_r($_POST);
+
         if ($_POST['event_title'] != "" && $_POST['event_desc'] != '' && $_POST['event_status'] != "") {
 
             $event_title = $_POST['event_title'];
@@ -84,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($qry_res != 0) { ?>
                 <script>
                     alert("group Created");
-                    window.location.href = './section_event_add?sectionid=<?= $sectionid ?>';
+                    window.location.href = './section_event_details?sectionid=<?= $sectionid ?>';
                 </script>
             <?php }
         }
@@ -135,5 +136,69 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             window.location.href='./front_home';
             </script>";
         }
+    }
+
+
+    if (isset($_GET['del_event']) && isset($_GET['sectionid'])) {
+        $evenGroupId = $_GET['del_event'];
+        $sectionid = $_GET['sectionid'];
+        if ($evenGroupId != "") {
+
+            $qry = "SELECT * FROM grt_section_events WHERE section_group_id= $evenGroupId";
+
+            $qry_res = $sec_back->data_fetch($qry);
+            if ($qry_res != 0) {
+
+                $qry_delete_event = "DELETE FROM `grt_section_events` WHERE section_group_id= $evenGroupId";
+
+                $qry_delete_event_res = $sec_back->data_delete($qry_delete_event);
+                if ($qry_delete_event_res != 0) {
+
+
+                    $qry_delete_group = "DELETE FROM `grt_section_group` WHERE id = $evenGroupId";
+                    $qry_delete_group_res = $sec_back->data_delete($qry_delete_group);
+                    if ($qry_delete_group_res != 0) { ?>
+
+                        <script>     window.location.href = "./section_event_details.php?sectionid=<?= $sectionid ?>";
+                        </script>
+                    <?php }
+                    ?>
+
+                <?php }
+
+            } else {
+                $qry_delete_group = "DELETE FROM `grt_section_group` WHERE id = $evenGroupId";
+
+                $qry_delete_group_res = $sec_back->data_delete($qry_delete_group);
+                if ($qry_delete_group_res != 0) { ?>
+
+                    <script>     window.location.href = "./section_event_details.php?sectionid=<?= $sectionid ?>";
+                    </script>
+                <?php }
+            }
+
+
+
+
+        }
+
+
+    }
+
+    if (isset($_GET['event_delid']) && isset($_GET['eventgroupid']) && isset($_GET['sectionid'])) {
+        $event_delid = $_GET['event_delid'];
+        $eventgroupid = $_GET['eventgroupid'];
+        $sectionid = $_GET['sectionid'];
+
+        $qry = "DELETE FROM `grt_section_events` WHERE id= $event_delid";
+        $qry_res = $sec_back->data_delete($qry);
+        if ($qry_res != 0) { ?>
+            <script>
+                window.location.href = 'section_event_edit?eventgroupid=<?= $eventgroupid ?>&sectionid=<?= $sectionid ?>';
+            </script>
+
+        <?php }
+    } else {
+        echo "fail";
     }
 }
