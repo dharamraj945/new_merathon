@@ -1,7 +1,7 @@
 <?php include "./header.php";
 $obj_homepage = new Db_functions();
 
-$qry = "SELECT * FROM `grt_pages` gp INNER JOIN  grt_page_section_trans gpst on gp.id = gpst.page_id WHERE gp.is_index_page = 1  and gpst.status=0";
+$qry = "SELECT * FROM `grt_pages` gp INNER JOIN  grt_page_section_trans gpst on gp.id = gpst.page_id WHERE gp.is_index_page = 1  and gpst.status=0 ORDER BY section_seq";
 
 $home_qry = $obj_homepage->data_fetch($qry);
 

@@ -1,124 +1,195 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-body *{
-  font-family: 'Poppins', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body * {
+  font-family: "Poppins", sans-serif;
 }
 
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
 body {
-    line-height:1;
+  line-height: 1;
 }
 
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
-    display:block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 nav ul {
-    list-style:none;
+  list-style: none;
 }
 
-blockquote, q {
-    quotes:none;
+blockquote,
+q {
+  quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content:'';
-    content:none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 
 a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
 /* change colours to suit your needs */
 ins {
-    background-color:#ff9;
-    color:#000;
-    text-decoration:none;
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
 }
 
 /* change colours to suit your needs */
 mark {
-    background-color:#ff9;
-    color:#000;
-    font-style:italic;
-    font-weight:bold;
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
 }
 
 del {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
-abbr[title], dfn[title] {
-    border-bottom:1px dotted;
-    cursor:help;
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
 }
 
 table {
-    border-collapse:collapse;
-    border-spacing:0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* change border colour to suit your needs */
 hr {
-    display:block;
-    height:1px;
-    border:0;  
-    border-top:1px solid #cccccc;
-    margin:1em 0;
-    padding:0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
-input, select {
-    vertical-align:middle;
+input,
+select {
+  vertical-align: middle;
 }
 
-@media (min-width: 1400px){
-  html body .container{
-      max-width: 1220px !important;
+@media (min-width: 1400px) {
+  html body .container {
+    max-width: 1220px !important;
   }
 }
-@media (min-width: 1200px){
-  .container{
-      max-width: 1180px !important;
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1180px !important;
   }
 }
-@media (min-width: 992px){
-  .container{
-      max-width: 960px;
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
   }
 }
-@media (min-width: 767px){
-  .container{
-      max-width: 720px;
+@media (min-width: 767px) {
+  .container {
+    max-width: 720px;
   }
 }
-.container{
+.container {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -144,11 +215,11 @@ input, select {
   text-transform: uppercase;
   margin-bottom: 0px;
   text-align: center;
-  color: #18181b
+  color: #18181b;
 }
 
 /* Header */
-.main-header .nav-right .btn{
+.main-header .nav-right .btn {
   padding: 10px 23px;
   border: 1px solid;
   display: inline-flex;
@@ -207,16 +278,16 @@ input, select {
   line-height: 30px;
 }
 
-.main-header .navbar-nav > .nav-item .nav-link:hover, 
+.main-header .navbar-nav > .nav-item .nav-link:hover,
 .main-header .navbar-nav > .nav-item:nth-child(1) .nav-link {
   color: #ea3a09;
 }
-.navbar>.container-fluid {
+.navbar > .container-fluid {
   padding: 0px;
 }
 /* Main content */
 main {
-  background: url('./marathon-images/orange-background.png');
+  background: url("./marathon-images/orange-background.png");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
@@ -225,7 +296,7 @@ main {
 /* Hero Section */
 
 .hero {
-  background: url('./marathon-images/hero-banner-image.png');
+  background: url("./marathon-images/hero-banner-image.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -252,7 +323,7 @@ main {
   font-weight: 500;
 }
 
-.hero .event-date, 
+.hero .event-date,
 .hero .event-time {
   color: #ffffff;
   font-size: 24px;
@@ -261,7 +332,7 @@ main {
   line-height: 50px;
 }
 
-.hero .event-date img, 
+.hero .event-date img,
 .hero .event-time img {
   filter: invert(1);
   font-weight: 600;
@@ -290,7 +361,7 @@ main {
   box-sizing: border-box;
 }
 
-.hero .button-container .event-link:hover{
+.hero .button-container .event-link:hover {
   background: #ffffff;
   color: #ea3a09;
   border: 1px solid #ea3a09;
@@ -305,9 +376,9 @@ main {
 }
 .area-of-run:before {
   position: absolute;
-  content: '';
+  content: "";
   width: 100%;
-  background: url('./marathon-images/area-of-run-top-strip.png');
+  background: url("./marathon-images/area-of-run-top-strip.png");
   left: 0px;
   top: -59px;
   height: 60px;
@@ -337,11 +408,11 @@ main {
   position: relative;
 }
 .area-of-run .area-list li:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 20px;
   height: 16px;
-  background: url('./marathon-images/tick-mark.png');
+  background: url("./marathon-images/tick-mark.png");
   left: 0px;
   top: 3px;
   background-repeat: no-repeat;
@@ -352,7 +423,7 @@ main {
 }
 .area-of-run .section-title,
 .area-of-run .title-top {
-    text-align: left;
+  text-align: left;
 }
 /* Event Details */
 .event-details-section {
@@ -361,38 +432,38 @@ main {
 }
 
 .event-details-container {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .event-details-content {
-    display: flex;
-    padding: 30px 0px 30px;
-    border-bottom: 1px dashed #a9a9a9;
+  display: flex;
+  padding: 30px 0px 30px;
+  border-bottom: 1px dashed #a9a9a9;
 }
 
 .event-details-section .event-left-section .event-points {
-    margin-bottom: 0px;
-    font-size: 26px;
-    color: #ea3a0a;
-    line-height: 1.1;
+  margin-bottom: 0px;
+  font-size: 26px;
+  color: #ea3a0a;
+  line-height: 1.1;
 }
 
 .event-details-section .event-left-section .event-heading {
-    margin-bottom: 0px;
-    font-size: 20px;
-    line-height: 1.4;
-    font-weight: 600;
+  margin-bottom: 0px;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
 .event-details-section .event-right-section {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .event-details-section .event-right-section .event-para {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
 }
 .event-details-section .event-right-section .read-more {
   color: #ea3a0a;
@@ -407,8 +478,15 @@ main {
   margin-top: 20px;
 }
 /* Photo Gallery */
-.gallery-container .col-4 img {
-  width: 100%;
+.gallery-container .img {
+  display: flex;
+  height: 227px;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-container .img img {
+  max-height: 100%;
+  max-width: 100%;
 }
 .gallery-container .no-gutters {
   display: flex;
@@ -426,7 +504,8 @@ main {
   margin-top: 30px !important;
   margin-bottom: 30px;
 }
-.gallery-details a:hover, .gallery-details a.active {
+.gallery-details a:hover,
+.gallery-details a.active {
   background: #ea3a09;
   border-color: #ea3a09;
   color: #ffffff;
@@ -454,16 +533,16 @@ main {
   margin-top: 44px;
   line-height: 30px;
 }
-.event-gallery-section .button-container .load-more:hover{
+.event-gallery-section .button-container .load-more:hover {
   background: #ffffff;
-    color: #ea3a09;
-    border: 1px solid #ea3a09;
+  color: #ea3a09;
+  border: 1px solid #ea3a09;
 }
 /* Testimonial */
 
 .testimonial-section {
   padding: 40px 0px;
-  background-image: url('./marathon-images/world-map.png');
+  background-image: url("./marathon-images/world-map.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -548,12 +627,16 @@ main {
   left: 0px;
 }
 
-.testimonial-section .testimonials-side-images .testimonials-images-bottom-left {
+.testimonial-section
+  .testimonials-side-images
+  .testimonials-images-bottom-left {
   bottom: 20px;
   left: 0px;
 }
 
-.testimonial-section .testimonials-side-images .testimonials-images-bottom-right {
+.testimonial-section
+  .testimonials-side-images
+  .testimonials-images-bottom-right {
   bottom: 70px;
   right: 0px;
 }
@@ -565,8 +648,8 @@ main {
 /* News Feed */
 .news-feed-section .news-feed-container {
   display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px !important;
+  flex-wrap: wrap;
+  margin-top: 30px !important;
 }
 
 .news-feed-section {
@@ -652,16 +735,16 @@ main {
 }
 /* Register */
 .register-container {
-  background: url('./marathon-images/bottom-banner-background.png');
+  background: url("./marathon-images/bottom-banner-background.png");
   padding: 30px !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top center;
-    position: relative;
-    z-index: 1;
-    border-radius: 4px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  z-index: 1;
+  border-radius: 4px;
 }
-.register-container .register-image{
+.register-container .register-image {
   position: absolute;
   right: 0px;
   bottom: 0px;
@@ -710,9 +793,9 @@ footer.footer {
 }
 footer:before {
   position: absolute;
-  content: '';
+  content: "";
   width: 100%;
-  background: url('./marathon-images/area-of-run-top-strip.png');
+  background: url("./marathon-images/area-of-run-top-strip.png");
   left: 0px;
   top: -13px;
   height: 60px;
@@ -728,7 +811,7 @@ footer:before {
 }
 .footer .footer-heading:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 20px;
   height: 3px;
   background: red;
@@ -742,11 +825,11 @@ footer:before {
   line-height: 20px;
 }
 
-.footer .footer-copyright{
+.footer .footer-copyright {
   border-top: 1px solid #38373c !important;
   margin-top: 20px !important;
 }
-html body .footer .footer-para{
+html body .footer .footer-para {
   line-height: 24px;
 }
 html body .footer .footer-para,
@@ -776,7 +859,7 @@ html body .footer .footer-gallary a:hover {
   border: 1px solid red;
 }
 
-html body .footer .footer-gallary a{
+html body .footer .footer-gallary a {
   display: inline-block;
   border-radius: 0px;
 }
@@ -784,33 +867,32 @@ html body .footer .footer-gallary a{
   width: auto;
 }
 
-
 @media screen and (min-width: 992px) {
   /* Event Details */
   .event-details-section .event-right-section {
     padding-left: 20px;
     box-sizing: border-box;
-}
+  }
 
-.event-details-section .event-left-section {
+  .event-details-section .event-left-section {
     padding-right: 20px;
     box-sizing: border-box;
-}
+  }
 }
 
-@media screen and (max-width:991px) {
+@media screen and (max-width: 991px) {
   /* Header */
   .main-header .navbar-nav {
     align-items: flex-start;
   }
 
   .main-header .navbar-nav > .nav-item:nth-child(2) .nav-link {
-      margin: 0px;
+    margin: 0px;
   }
 
   .nav-right {
-      margin-left: 0px;
-      justify-content: flex-start;
+    margin-left: 0px;
+    justify-content: flex-start;
   }
   /* Area for run */
 
@@ -819,105 +901,103 @@ html body .footer .footer-gallary a{
   }
 
   .area-img-conteiner {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 40px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
   }
 
   .area-img-conteiner {
     max-width: 250px;
-}
+  }
 
-.area-img-conteiner img {
+  .area-img-conteiner img {
     width: 100%;
-}
+  }
 
-/* Event Section */
-.event-details-content {
-  flex-direction: column;
-}
+  /* Event Section */
+  .event-details-content {
+    flex-direction: column;
+  }
 
-.event-left-section {
-  margin-bottom: 20px;
-}
+  .event-left-section {
+    margin-bottom: 20px;
+  }
 
-.event-details-section .event-left-section .event-points {
-  width: 50px;
-}
+  .event-details-section .event-left-section .event-points {
+    width: 50px;
+  }
 
-.event-details-section .event-left-section .event-heading {
-  width: calc(100% - 32px);
-}
+  .event-details-section .event-left-section .event-heading {
+    width: calc(100% - 32px);
+  }
 
-/* Register Section */
+  /* Register Section */
 
-.register-section {
-  padding-top: 100px;
-}
+  .register-section {
+    padding-top: 100px;
+  }
 
-.register-section .register-container .register-image {
-  position: static;
-  width: 100%;
-  max-width: 374px;
-  margin-top: -194px;
-  margin-bottom: 20px;
-}
+  .register-section .register-container .register-image {
+    position: static;
+    width: 100%;
+    max-width: 374px;
+    margin-top: -194px;
+    margin-bottom: 20px;
+  }
 
-.register-section .register-content {
-  width: 100%;
-}
+  .register-section .register-content {
+    width: 100%;
+  }
 
-.register-section .register-container {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: center;
-}
-
+  .register-section .register-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  /* Hero */
 
-/* Hero */
+  html body .hero .hero-heading {
+    font-size: 42px;
+  }
 
-html body .hero .hero-heading {
-  font-size: 42px;
-}
+  html body .hero .top-sub-heading {
+    font-size: 22px;
+  }
 
-html body .hero .top-sub-heading {
-  font-size: 22px;
-}
+  html body .hero .sub-heading {
+    font-size: 31px;
+  }
 
-html body .hero .sub-heading {
-  font-size: 31px;
-}
+  html body .hero .event-date,
+  html body .hero .event-time {
+    font-size: 20px;
+    line-height: 40px;
+  }
 
-html body .hero .event-date, 
-html body .hero .event-time {
-  font-size: 20px;
-  line-height: 40px;
-}
+  html body .hero .hero-para {
+    margin-top: 42px;
+  }
 
-html body .hero .hero-para {
-  margin-top: 42px;
-}
+  html body .hero .button-container .event-link {
+    width: 100%;
+    height: 60px;
+  }
 
-html body .hero .button-container .event-link {
-  width: 100%;
-  height: 60px;
-}
-
-  html body .section-title{
+  html body .section-title {
     font-size: 24px;
   }
 
   /* Area of run */
-  .area-of-run .area-address{
+  .area-of-run .area-address {
     font-size: 18px;
     padding: 15px;
   }
 
-  .area-of-run .area-img-conteiner{
+  .area-of-run .area-img-conteiner {
     max-width: 180px;
   }
 
@@ -927,18 +1007,18 @@ html body .hero .button-container .event-link {
 
   /* Event Details */
   .event-details-section .event-left-section .event-heading {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .event-details-section .event-left-section .event-points {
-      font-size: 20px;
-      width: 32px;
-      position: relative;
-      top: 2px;
+    font-size: 20px;
+    width: 32px;
+    position: relative;
+    top: 2px;
   }
 
   .event-details-section .event-left-section .event-heading br {
-      display: none;
+    display: none;
   }
   /* Photo Gallery */
   html body .event-gallery-section .gallery-details .btn {
@@ -959,7 +1039,7 @@ html body .hero .button-container .event-link {
   }
 
   /* News Feed */
-  html body .news-feed-section .news-feed-container > div{
+  html body .news-feed-section .news-feed-container > div {
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
@@ -972,21 +1052,21 @@ html body .hero .button-container .event-link {
   }
 
   html body .register-container .register-heading {
-      font-size: 22px;
+    font-size: 22px;
   }
 
   html body .register-container .register-para {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   html body .register-container .register-now {
-      width: 100%;
-      font-size: 16px;
-      height: 42px;
+    width: 100%;
+    font-size: 16px;
+    height: 42px;
   }
 }
-@media screen and (max-width:350px) {
-  html body .event-gallery-section .gallery-details a.past-events{
+@media screen and (max-width: 350px) {
+  html body .event-gallery-section .gallery-details a.past-events {
     margin-left: 4px;
     margin-right: 4px;
   }
@@ -994,5 +1074,5 @@ html body .hero .button-container .event-link {
     font-size: 12px;
     padding-left: 5px;
     padding-right: 5px;
-}
+  }
 }

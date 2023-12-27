@@ -15,25 +15,27 @@ $qry_main_res = $page_obj->data_fetch($qry_main);
 if ($qry_main_res != 0) {
 
     $is_custom = $qry_main_res[0]['is_custom'];
+    $page_name = $qry_main_res[0]['page_title'];
 }
 
 if ($is_custom != 1) {
-    $qry = "SELECT * FROM `grt_pages` gp INNER JOIN  grt_page_section_trans gpst on gp.id = gpst.page_id WHERE gp.is_index_page = 0 and gp.page_handler='$page_handler'";
+    $qry = "SELECT * FROM `grt_pages` gp INNER JOIN  grt_page_section_trans gpst on gp.id = gpst.page_id WHERE gp.page_handler='$page_handler' ORDER BY section_seq";
 } else {
 
-    $qry = "SELECT * FROM `grt_pages` WHERE is_index_page = 0 and page_handler='$page_handler'";
+    $qry = "SELECT * FROM `grt_pages` WHERE page_handler='$page_handler' ";
 }
+
 
 $qry_run = $page_obj->data_fetch($qry);
 ?>
 
 
 <main>
-    <div class="container">
 
+    <div class="container">
         <div class="row py-5">
 
-            <h2>Page Title</h2>
+            <h2><?= $page_name ?></h2>
         </div>
         <?php
 
@@ -42,6 +44,7 @@ $qry_run = $page_obj->data_fetch($qry);
         if ($qry_run != 0) {
 
             if ($is_custom != 1) {
+
                 foreach ($qry_run as $key => $values) {
 
                     $section_group_id = $values['section_group_id'];
@@ -75,26 +78,31 @@ $qry_run = $page_obj->data_fetch($qry);
 
                 $get_section_res = $page_obj->data_fetch($get_section_group);
                 if ($get_section_res != 0) {
-                    $custom_section_data = urldecode($get_section_res[0]['page_content']);
+                    $custom_section_data = urldecode($get_section_res[0]['page_content']); ?>
+                    <div class="container">
 
-                    echo html_entity_decode($custom_section_data);
-                }
+                        <?=
+                        html_entity_decode($custom_section_data);
+
+                        ?>
+                    </div>
+            <?php }
             }
         } else { ?>
-
-            <div class="d-flex align-items-center justify-content-center vh-100">
-                <div class="text-center">
-                    <h1 class="display-1 fw-bold">404</h1>
-                    <p class="fs-3"> <span class="text-danger">Opps!</span> Page not found.</p>
-                    <p class="lead">
-                        The page you’re looking for doesn’t exist.
-                    </p>
-                    <a href="./index" class="btn btn-primary">Go Home</a>
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-center vh-100">
+                    <div class="text-center">
+                        <h1 class="display-1 fw-bold">404</h1>
+                        <p class="fs-3"> <span class="text-danger">Opps!</span> Page not found.</p>
+                        <p class="lead">
+                            The page you’re looking for doesn’t exist.
+                        </p>
+                        <a href="./index" class="btn btn-primary">Go Home</a>
+                    </div>
                 </div>
+            <?php }
+            ?>
             </div>
-        <?php }
-        ?>
-    </div>
 </main>
 
 

@@ -21,7 +21,7 @@ $qry_res = $data_page->data_fetch($qry);
                         <tr>
                             <th>Sno</th>
                             <th>Title</th>
-
+                            <th>Type</th>
                             <th>Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -39,6 +39,11 @@ $qry_res = $data_page->data_fetch($qry);
                                 <tr>
                                     <td><a href="#"> <?= $sno ?> </a></td>
                                     <td> <?= $value['page_title'] ?> </td>
+                                    <td>
+
+                                        <span class="badge badge-<?= $value['is_custom'] == 0 ? "warning" : "primary" ?>"><?= $value['is_custom'] == 0 ? "Section Page" : "Custom Page" ?></span>
+
+                                    </td>
 
                                     <td> <?= $value['created_date'] ?> </td>
 

@@ -59,7 +59,7 @@ $qry_res = $gallery_data->data_fetch($qry);
                                     </td>
                                     <td><?= $values['created_date'] ?></td>
 
-                                    <td><a href=" ./menu_update?menu_id=51" class="btn btn-sm   btn-primary">Edit</a>
+                                    <td>
                                         <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#img_del<?= $values['id'] ?>">Delete</button>
 
                                         <!-- Modal -->

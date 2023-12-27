@@ -42,6 +42,12 @@ else
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 </head>
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+</style>
 
 <body id="page-top">
     <div id="wrapper">
@@ -64,7 +70,7 @@ else
             <div class="sidebar-heading">
                 Features
             </div>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
                     <i class="far fa-fw fa-user"></i>
                     <span>User Managment</span>
@@ -77,7 +83,7 @@ else
 
                     </div>
                 </div>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap_p" aria-expanded="true" aria-controls="collapseBootstrap">
                     <i class="far fa  fa-th-list"></i>

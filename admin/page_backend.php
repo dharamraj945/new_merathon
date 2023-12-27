@@ -5,6 +5,7 @@ $page_backend = new Db_functions();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+
     if (isset($_POST['add_page'])) {
 
         if ($_POST['Page_title'] != "" && $_POST['page_content'] != "") {
@@ -54,48 +55,101 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    if (isset($_POST['add_page'])) {
+
+    if (isset($_POST['inputPairs'])) {
+
+        foreach ($_POST['inputPairs'] as $key => $value) {
+
+            $page_id = $value['pageId'];
+            $seq_number = $value['sequence'];
+
+            $qry_sq = "UPDATE `grt_page_section_trans` SET`section_seq`='$seq_number' WHERE id=$page_id";
+            $qry_se_res = $page_backend->data_update($qry_sq);
+            if ($qry_se_res != 0) {
+
+                $array = array("status" => "success");
+                $array_json = json_encode($array);
+                header('Content-Type: application/json');
+            }
+        }
+        echo $array_json;
+    }
+
+    if (isset($_POST['update_page'])) {
+
 
         if ($_POST['Page_title'] != "" && $_POST['page_content'] != "" && $_POST['pageid'] != "") {
+
 
             $page_title = $_POST['Page_title'];
             $page_content = $_POST['page_content'];
             $pageid = $_POST['pageid'];
 
             $page_descreption = $_POST['Page_descreption'];
-            $assigned_section = implode(',', $page_content);
 
 
 
+            $page_is_custom = "SELECT * FROM grt_pages WHERE id=$pageid";
 
 
 
-            // Update data into page 
-            $sql_page_update = "UPDATE `grt_pages` SET`page_title`='$page_title',`page_short_desc`='$page_descreption' WHERE id = $pageid";
+            $page_is_custom_res = $page_backend->data_fetch($page_is_custom);
+            if ($page_is_custom_res != 0) {
+
+                $is_custom = $page_is_custom_res[0]['is_custom'];
+            }
 
 
-            $result = $page_backend->data_update($sql_page_update);
+            if ($is_custom == 0) {
 
-            if ($result != 0) {
+                $assigned_section = implode(',', $page_content);
 
-                $delete_old_sec = "DELETE FROM `grt_page_section_trans` WHERE page_id=$pageid";
-                $delete_old_sec_res = $page_backend->data_delete($delete_old_sec);
-                if ($delete_old_sec != 0) {
-                    foreach ($page_content as $key => $value) {
 
-                        $qry_assign = "INSERT INTO `grt_page_section_trans`( `page_id`, `section_group_id`,`status`) VALUES ('$pageid','$value','0')";
+                // Update data into page 
+                $sql_page_update = "UPDATE `grt_pages` SET`page_title`='$page_title',`page_short_desc`='$page_descreption' WHERE id = $pageid";
 
-                        $assigned_section = $page_backend->data_insert($qry_assign);
+
+
+                $result = $page_backend->data_update($sql_page_update);
+
+                if ($result != 0) {
+
+                    $delete_old_sec = "DELETE FROM `grt_page_section_trans` WHERE page_id=$pageid";
+
+                    $delete_old_sec_res = $page_backend->data_delete($delete_old_sec);
+                    if ($delete_old_sec != 0) {
+                        foreach ($page_content as $key => $value) {
+
+                            $qry_assign = "INSERT INTO `grt_page_section_trans`( `page_id`, `section_group_id`,`status`) VALUES ('$pageid','$value','0')";
+
+                            $assigned_section = $page_backend->data_insert($qry_assign);
+                        }
+                        if ($assigned_section != 0) { ?>
+                            <script>
+                                alert("updated");
+                                window.location.href = "./page_edit?pageid=<?= $pageid ?>";
+                            </script>
+                    <?php }
                     }
-                    if ($assigned_section != 0) { ?>
-                        <script>
-                            alert("updated");
-                            window.location.href = "./page_edit?pageid=<?= $pageid ?>";
-                        </script>
-                <?php }
                 }
+            } elseif ($is_custom == 1) {
+
+                $page_content = urlencode($page_content);
+                $sql_page_update = "UPDATE `grt_pages` SET`page_title`='$page_title',`page_short_desc`='$page_descreption',`page_content`='$page_content' WHERE id = $pageid";
+                $result = $page_backend->data_update($sql_page_update);
+                if ($result != 0) { ?>
+                    <script>
+                        alert("updated");
+                        window.location.href = "./page_edit?pageid=<?= $pageid ?>";
+                    </script>
+                <?php }
+            } else {
+                echo "undefined Page";
             }
         }
+    }
+
+    if (isset($_POST['update_seq'])) {
     }
 
 
@@ -166,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
                     <script>
                         window.location.href = "./pages";
                     </script>
-<?php  }
+                <?php  }
             }
         }
     }
@@ -184,12 +238,20 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
             if ($page_del != 0) {
                 $qry_delete_section = "DELETE FROM grt_page_section_trans WHERE page_id = $delete_id";
                 $page_section_del = $page_backend->data_delete($qry_delete_section);
-                if ($page_section_del != 0) {
-                }
+                if ($page_section_del != 0) { ?>
+                    <script>
+                        window.location.href = './pages';
+                    </script>
+                <?php }
             }
         } else {
             $qry_delete_page = "DELETE FROM grt_pages WHERE id = $delete_id";
             $page_del = $page_backend->data_delete($qry_delete_page);
+            if ($page_del != 0) { ?>
+                <script>
+                    window.location.href = './pages';
+                </script>
+<?php }
         }
     }
 }

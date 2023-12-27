@@ -1,7 +1,7 @@
 <?php
 include "./header.php";
 $section_create = new Db_functions();
-$qry = "SELECT *  FROM `grt_sections`";
+$qry = "SELECT *  FROM `grt_sections` WHERE status=0";
 $result = $section_create->data_fetch($qry);
 
 
